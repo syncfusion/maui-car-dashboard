@@ -7,19 +7,24 @@
     <Grid Margin="20" BackgroundColor="#1A1A1A">
         <Image Aspect="Fill" Source="frame.png"/>
         <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
-            <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
-                <Image Grid.Column="0" Aspect="Fill" Source="indicatorleft.png"/>
-                <Image Grid.Column="1" Aspect="Fill" Source="parking.png"/>
-                <Image Grid.Column="2" Aspect="Fill" Source="indicatorright.png"/>
+            <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
+                <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe703;" TextColor="#FF8000"/>
+                <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe704;" TextColor="#FF8000"/>
+                <Label Grid.Column="2" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="50" Text="&#xe70d;" TextColor="#00E93E"/>
+                <Label Grid.Column="3" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="60" Text="&#xe70f;" TextColor="#FF8000"/>
+                <Label Grid.Column="4" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="50" Text="&#xe70e;" TextColor="#00E93E"/>
+                <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe700;" TextColor="#FF8000"/>
+                <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe701;" TextColor="#FF8000"/>
             </Grid>
             <Grid Grid.Row="1" ColumnDefinitions="0.5*, 1*, 1*, 0.5*">
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
                     <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
                         <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="4" Fill="White"/>
+                            <gauge:RadialLineStyle Thickness="4">
+                            </gauge:RadialLineStyle>
                         </gauge:RadialAxis.AxisLineStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontSize="11" FontAttributes="Bold" TextColor="White"/>
+                            <gauge:GaugeLabelStyle FontSize="11" TextColor="White"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Pointers>
                             <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
@@ -62,15 +67,15 @@
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="5" StartValue="25" EndValue="200" Fill="#660059FF"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="9" StartValue="25" EndValue="200" Fill="#4D0059FF"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="13" StartValue="25" EndValue="200" Fill="#330059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="Green"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="YellowGreen"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="Red"/>
                         </gauge:RadialAxis.Ranges>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="1">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" Minimum="1" Maximum="8" StartAngle="160" EndAngle="20">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" Minimum="1" Maximum="8">
                         <gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialLineStyle Thickness="5" Fill="White"/>
                         </gauge:RadialAxis.AxisLineStyle>
@@ -119,7 +124,7 @@
                 </gauge:SfRadialGauge>
 
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="2">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" Minimum="0" Maximum="280" StartAngle="160" EndAngle="20">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" Minimum="0" Maximum="280" >
                         <gauge:RadialAxis.MajorTickStyle>
                             <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
                         </gauge:RadialAxis.MajorTickStyle>
@@ -218,21 +223,21 @@
             </Grid>
             <Grid Margin="170,0,170,0" ColumnDefinitions="*,*,*" Grid.Row="2">
                 <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="0">
-                    <Image Grid.Column="0" Aspect="Fill" Source="oillevelwarning.png"/>
-                    <Image Grid.Column="1" Aspect="Fill" Source="rducedenginepower.png"/>
-                    <Image Grid.Column="2" Aspect="Fill" Source="electronicthrottlecontrol.png"/>
+                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe70c;" TextColor="#33D3FF" />
+                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe70b;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe70a;" TextColor="#33D3FF"/>
                 </Grid>
                 <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="1">
-                    <Image Grid.Column="0" Aspect="Fill" Source="brakewarning.png"/>
-                    <Image Grid.Column="1" Aspect="Fill" Source="particlefilter.png"/>
-                    <Image Grid.Column="2" Aspect="Fill" Source="hazardlight.png"/>
-                    <Image Grid.Column="3" Aspect="Fill" Source="lowcoolant.png"/>
-                    <Image Grid.Column="4" Aspect="Fill" Source="engineon.png"/>
+                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe703;" TextColor="#FF8000"/>
+                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe704;" TextColor="#FF8000"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe702;" TextColor="#FF0000"/>
+                    <Label Grid.Column="3" FontFamily="CarDashboard" Text="&#xe700;" TextColor="#FF8000"/>
+                    <Label Grid.Column="4" FontFamily="CarDashboard" Text="&#xe701;" TextColor="#FF8000"/>
                 </Grid>
                 <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="2">
-                    <Image Grid.Column="0" Aspect="Fill" Source="fuelfilterlevel.png"/>
-                    <Image Grid.Column="1" Aspect="Fill" Source="brakefluidlevel.png"/>
-                    <Image Grid.Column="2" Aspect="Fill" Source="tractioncontrol.png"/>
+                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe707;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe706;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe708;" TextColor="#33D3FF"/>
                 </Grid>
             </Grid>
         </Grid>
