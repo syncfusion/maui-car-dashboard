@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:local="clr-namespace:CarDashBoard"
+             x:Class="CarDashBoard.MainPage">
+    <Grid Margin="20" BackgroundColor="#1A1A1A">
+        <Image Aspect="Fill" Source="frame.png"/>
+        <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
+                <Image Grid.Column="0" Aspect="Fill" Source="indicatorleft.png"/>
+                <Image Grid.Column="1" Aspect="Fill" Source="parking.png"/>
+                <Image Grid.Column="2" Aspect="Fill" Source="indicatorright.png"/>
+            </Grid>
+            <Grid Grid.Row="1" ColumnDefinitions="0.5*, 1*, 1*, 0.5*">
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="4" Fill="White"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:GaugeLabelStyle FontSize="11" FontAttributes="Bold" TextColor="White"/>
+                        </gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Length="10" Stroke="White" StrokeThickness="3"/>
+                        </gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialTickStyle Length="10" StrokeThickness="3"/>
+                        </gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionValue="280" PositionFactor="0.5" >
+                                <gauge:GaugeAnnotation.Content>
+                                    <Image WidthRequest="20" HeightRequest="20"  Source="temperature.png"/>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="120" PositionFactor="0.25">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="Temperature"
+                                   TextColor="White"
+                                   FontSize="12" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="170" PositionFactor="0.92">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="C"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="14" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="280" PositionFactor="0.92">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="H"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="14" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="5" StartValue="25" EndValue="200" Fill="#660059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="9" StartValue="25" EndValue="200" Fill="#4D0059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="13" StartValue="25" EndValue="200" Fill="#330059FF"/>
+                        </gauge:RadialAxis.Ranges>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge>
+
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="1">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" Minimum="1" Maximum="8" StartAngle="160" EndAngle="20">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="5" Fill="White"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                        </gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                        </gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                        </gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer x:Name="rpmNeedle"  Value="3.5" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label x:Name="rpmLabel"
+                                           x:DataType="gauge:NeedlePointer"
+                                           Text="{Binding Source={x:Reference rpmNeedle}, Path=Value, StringFormat='{0} RPM', Converter={local:RpmConverter}}"
+                                           FontAttributes="Bold"
+                                           TextColor="Blue"
+                                           FontSize="24" >
+                                    </Label>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.35">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="x1000"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="20" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="#660059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="#4D0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="#330059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
+                        </gauge:RadialAxis.Ranges>
+                    </gauge:RadialAxis>
+
+                </gauge:SfRadialGauge>
+
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="2">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" Minimum="0" Maximum="280" StartAngle="160" EndAngle="20">
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                        </gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                        </gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                        </gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="5" Fill="White"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer x:Name="speedometer" Value="96" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label x:DataType="gauge:NeedlePointer" Text="{Binding Source={x:Reference speedometer},Path=Value, StringFormat='{0} KM/H'}"
+                                   FontAttributes="Bold"
+                                   TextColor="Blue"
+                                   FontSize="24" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.35">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="km/h"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="20" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="0" EndValue="280" Fill="#660059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="0" EndValue="280" Fill="#4D0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="0" EndValue="280" Fill="#330059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="0" EndValue="280" Fill="#1A0059FF"/>
+                        </gauge:RadialAxis.Ranges>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge>
+
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="3">
+                    <gauge:RadialAxis EnableLoadingAnimation="True" ZIndex="1" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
+                        <gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:GaugeLabelStyle TextColor="White"/>
+                        </gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Stroke="White" StrokeThickness="3"/>
+                        </gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="4" Fill="White"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Pointers>
+                            <gauge:NeedlePointer Value="2" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            </gauge:NeedlePointer>
+                        </gauge:RadialAxis.Pointers>
+                        <gauge:RadialAxis.Annotations>
+                            <gauge:GaugeAnnotation DirectionValue="260" PositionFactor="0.4" >
+                                <gauge:GaugeAnnotation.Content>
+                                    <Image WidthRequest="20" HeightRequest="20"  Source="petrol.png"/>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="20" PositionFactor="0.52">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="Fuel"
+                                   TextColor="White"
+                                   FontSize="12" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="10" PositionFactor="0.92">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="E"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="14" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="260" PositionFactor="0.92">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="F"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="14" />
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                        </gauge:RadialAxis.Annotations>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="5" StartValue="0" EndValue="6" Fill="#660059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="9" StartValue="0" EndValue="6" Fill="#4D0059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="13" StartValue="0" EndValue="6" Fill="#330059FF"/>
+                        </gauge:RadialAxis.Ranges>
+                    </gauge:RadialAxis>
+                </gauge:SfRadialGauge>
+            </Grid>
+            <Grid Margin="170,0,170,0" ColumnDefinitions="*,*,*" Grid.Row="2">
+                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="0">
+                    <Image Grid.Column="0" Aspect="Fill" Source="oillevelwarning.png"/>
+                    <Image Grid.Column="1" Aspect="Fill" Source="rducedenginepower.png"/>
+                    <Image Grid.Column="2" Aspect="Fill" Source="electronicthrottlecontrol.png"/>
+                </Grid>
+                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="1">
+                    <Image Grid.Column="0" Aspect="Fill" Source="brakewarning.png"/>
+                    <Image Grid.Column="1" Aspect="Fill" Source="particlefilter.png"/>
+                    <Image Grid.Column="2" Aspect="Fill" Source="hazardlight.png"/>
+                    <Image Grid.Column="3" Aspect="Fill" Source="lowcoolant.png"/>
+                    <Image Grid.Column="4" Aspect="Fill" Source="engineon.png"/>
+                </Grid>
+                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="2">
+                    <Image Grid.Column="0" Aspect="Fill" Source="fuelfilterlevel.png"/>
+                    <Image Grid.Column="1" Aspect="Fill" Source="brakefluidlevel.png"/>
+                    <Image Grid.Column="2" Aspect="Fill" Source="tractioncontrol.png"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    <ContentPage.Behaviors>
+        <local:MainPageBehavior/>
+    </ContentPage.Behaviors>
+</ContentPage>
