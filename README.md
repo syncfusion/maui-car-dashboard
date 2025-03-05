@@ -1,4 +1,4 @@
-# Crate car dashboard application in .NET MAUI platform
+# Create car dashboard application in .NET MAUI platform
 
 This repository contains the samples that demonstrate to create car dashboard in .NET MAUI application using SfRadialGauge Control.
 
@@ -13,15 +13,14 @@ This repository contains the samples that demonstrate to create car dashboard in
 
 ## Requirements to run the sample
 
-* [Visual Studio 2022 Preview](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes-preview) version 17.6.0 (.NET MAUI version 6.0.552) with .NET 6.0 and .NET 7.0
-* [Microsoft Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes) version 17.5.1 with (.NET MAUI version 6.0.552) with .NET 6.0 and .NET 7.0
-* [Visual Studio 2022 for Mac Preview](https://visualstudio.microsoft.com/vs/mac/preview/) version 17.5 (.NET MAUI version 6.0.552) with .NET 6.0 and .NET 7.0
+* [Visual Studio 2022 Preview](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes-preview) version 17.14.0 (.NET MAUI version 9.0.200) with .NET 9.0 and .NET 8.0
+* [Microsoft Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes) version 17.13.2 with (.NET MAUI version 9.0.200) with .NET 9.0 and .NET 8.0
 
 Refer to the following link for more details: [System Requirements](https://help.syncfusion.com/maui/system-requirements)
 
 ## How to run the sample
 
-1. Clone the sample and open it in Visual Studio 2022 preview.
+1. Clone the sample and open it in Visual Studio 2022.
 
    *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
 
