@@ -4,48 +4,44 @@
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              xmlns:local="clr-namespace:CarDashBoard"
              x:Class="CarDashBoard.MainPage">
-    <Grid Margin="20" BackgroundColor="#1A1A1A">
+    <Grid Margin="20" BackgroundColor="#000000">
         <Image Aspect="Fill" Source="frame.png"/>
-        <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
             <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
-                <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe703;" TextColor="#FF8000"/>
-                <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe704;" TextColor="#FF8000"/>
-                <Label Grid.Column="2" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="50" Text="&#xe70d;" TextColor="#00E93E"/>
-                <Label Grid.Column="3" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="60" Text="&#xe70f;" TextColor="#FF8000"/>
-                <Label Grid.Column="4" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="50" Text="&#xe70e;" TextColor="#00E93E"/>
-                <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe700;" TextColor="#FF8000"/>
-                <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="30" Text="&#xe701;" TextColor="#FF8000"/>
+                <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe703;" TextColor="#FF8000"/>
+                <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe704;" TextColor="#FF8000"/>
+                <Label Grid.Column="2" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Header" Text="&#xe70d;" TextColor="#00E93E"/>
+                <Label Grid.Column="3" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="56" Text="&#xe70f;" TextColor="#FF8000"/>
+                <Label Grid.Column="4" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Header" Text="&#xe70e;" TextColor="#00E93E"/>
+                <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe700;" TextColor="#FF8000"/>
+                <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe701;" TextColor="#FF8000"/>
             </Grid>
-            <Grid Grid.Row="1" ColumnDefinitions="0.5*, 1*, 1*, 0.5*">
+            <Grid Grid.Row="1" ColumnDefinitions="0.5*, 1*,Auto, 1*, 0.5*">
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
-                        <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="4">
-                            </gauge:RadialLineStyle>
-                        </gauge:RadialAxis.AxisLineStyle>
+                    <gauge:RadialAxis LabelOffset="14" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" ShowTicks="False" ShowAxisLine="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontSize="11" TextColor="White"/>
+                            <gauge:GaugeLabelStyle FontSize="12" TextColor="#FFFFFF"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Length="10" Stroke="White" StrokeThickness="3"/>
+                            <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="3"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.MinorTickStyle>
                             <gauge:RadialTickStyle Length="10" StrokeThickness="3"/>
                         </gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialAxis.Annotations>
-                            <gauge:GaugeAnnotation DirectionValue="280" PositionFactor="0.5" >
+                            <gauge:GaugeAnnotation DirectionValue="275" PositionFactor="0.6" >
                                 <gauge:GaugeAnnotation.Content>
-                                    <Image WidthRequest="20" HeightRequest="20"  Source="temperature.png"/>
+                                    <Label Text="&#xe705;" FontSize="Medium" FontFamily="CarDashboard" TextColor="#FF8000"/>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                             <gauge:GaugeAnnotation DirectionValue="120" PositionFactor="0.25">
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="Temperature"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -53,7 +49,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="C"
                                    FontAttributes="Bold"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -61,46 +57,59 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="H"
                                    FontAttributes="Bold"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
+                    </gauge:RadialAxis>
+                    <gauge:RadialAxis UseRangeColorForAxis="True" ShowLabels="False" EnableLoadingAnimation="True" AnimationDuration="4000" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="2" Fill="Transparent"/>
+                        </gauge:RadialAxis.AxisLineStyle>
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="Green"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="YellowGreen"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="Red"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="#32D85F">
+                            </gauge:RadialRange>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="#FF9629"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="#FF3E2E"/>
                         </gauge:RadialAxis.Ranges>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="2"/>
+                        </gauge:RadialAxis.MajorTickStyle>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="1">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" Minimum="1" Maximum="8">
-                        <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="5" Fill="White"/>
-                        </gauge:RadialAxis.AxisLineStyle>
+                    <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="25" StrokeThickness="4"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.MinorTickStyle>
-                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="15" StrokeThickness="4"/>
                         </gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="#FFFFFF"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer x:Name="rpmNeedle"  Value="3.5" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="5" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
                             <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
                                 <gauge:GaugeAnnotation.Content>
-                                    <Label x:Name="rpmLabel"
-                                           x:DataType="gauge:NeedlePointer"
-                                           Text="{Binding Source={x:Reference rpmNeedle}, Path=Value, StringFormat='{0} RPM', Converter={local:RpmConverter}}"
+                                    <Label Text="Engine Speed"
                                            FontAttributes="Bold"
-                                           TextColor="Blue"
-                                           FontSize="24" >
+                                           TextColor="#FFFFFF"
+                                           FontSize="10" >
+                                    </Label>
+                                </gauge:GaugeAnnotation.Content>
+                            </gauge:GaugeAnnotation>
+                            <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.6">
+                                <gauge:GaugeAnnotation.Content>
+                                    <Label Text="RPM"
+                                           FontAttributes="Bold"
+                                           TextColor="#FFFFFF"
+                                           FontSize="20" >
                                     </Label>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -108,91 +117,105 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="x1000"
                                    FontAttributes="Bold"
-                                   TextColor="White"
-                                   FontSize="20" />
+                                   TextColor="#FFFFFF"
+                                   FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
+                    </gauge:RadialAxis>
+                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
                         <gauge:RadialAxis.Ranges>
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="#660059FF"/>
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="#4D0059FF"/>
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="#330059FF"/>
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
                         </gauge:RadialAxis.Ranges>
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="5" Fill="#FFFFFF"/>
+                        </gauge:RadialAxis.AxisLineStyle>
                     </gauge:RadialAxis>
 
                 </gauge:SfRadialGauge>
-
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="2">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" Minimum="0" Maximum="280" >
+                <Grid Grid.Column="2" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto">
+                    <Label Grid.Row="0" Margin="0,10,0,0" x:Name="currentTime" FontSize="Medium" FontAttributes="Bold" TextColor="#FFFFFF"/>
+                    <Label Margin="0,40,0,0" Grid.Row="1" FontFamily="CarDashboard" HorizontalOptions="Center" FontSize="Large" Text="&#xe702;" TextColor="#FF0000"/>
+                </Grid>
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="3">
+                    <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" LabelOffset="0" AnimationDuration="4000" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="25" StrokeThickness="4"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.MinorTickStyle>
-                            <gauge:RadialTickStyle Stroke="White" Length="20" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="15" StrokeThickness="4"/>
                         </gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="20" TextColor="White"/>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="#FFFFFF"/>
                         </gauge:RadialAxis.AxisLabelStyle>
-                        <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="5" Fill="White"/>
-                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange  Fill="#3B79DF" StartValue="0" EndValue="160" RangeOffset="100"/>
+                            <gauge:RadialRange Fill="#FF3E2E" StartValue="160" EndValue="240" RangeOffset="100"/>
+                            <gauge:RadialRange Fill="#E90000" StartValue="240" EndValue="320" RangeOffset="100"/>
+                        </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer x:Name="speedometer" Value="96" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="60" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
                             <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
                                 <gauge:GaugeAnnotation.Content>
-                                    <Label x:DataType="gauge:NeedlePointer" Text="{Binding Source={x:Reference speedometer},Path=Value, StringFormat='{0} KM/H'}"
-                                   FontAttributes="Bold"
-                                   TextColor="Blue"
-                                   FontSize="24" />
+                                    <Label Text="Speed"
+                                           FontAttributes="Bold"
+                                           TextColor="#FFFFFF"
+                                           FontSize="10" >
+                                    </Label>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
-                            <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.35">
+                            <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.6">
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="km/h"
-                                   FontAttributes="Bold"
-                                   TextColor="White"
-                                   FontSize="20" />
+                                           FontAttributes="Bold"
+                                           TextColor="#FFFFFF"
+                                           FontSize="20" >
+                                    </Label>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
+                    </gauge:RadialAxis>
+                    <gauge:RadialAxis  EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="0" EndValue="280" Fill="#660059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="0" EndValue="280" Fill="#4D0059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="0" EndValue="280" Fill="#330059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="0" EndValue="280" Fill="#1A0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="#660059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="#4D0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="#330059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
                         </gauge:RadialAxis.Ranges>
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="5" Fill="#FFFFFF"/>
+                        </gauge:RadialAxis.AxisLineStyle>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="3">
-                    <gauge:RadialAxis EnableLoadingAnimation="True" ZIndex="1" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
-                        <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle TextColor="White"/>
-                        </gauge:RadialAxis.AxisLabelStyle>
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="4">
+                    <gauge:RadialAxis UseRangeColorForAxis="True" EnableLoadingAnimation="True" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="White" StrokeThickness="3"/>
+                            <gauge:RadialTickStyle Stroke="#FFFFFF" StrokeThickness="3"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="4" Fill="White"/>
+                            <gauge:RadialLineStyle Thickness="3" Fill="Transparent"/>
                         </gauge:RadialAxis.AxisLineStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="2" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="White" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="2" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
-                            <gauge:GaugeAnnotation DirectionValue="260" PositionFactor="0.4" >
+                            <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.6" >
                                 <gauge:GaugeAnnotation.Content>
-                                    <Image WidthRequest="20" HeightRequest="20"  Source="petrol.png"/>
+                                    <Label Text="&#xe709;" FontFamily="CarDashboard" FontSize="Medium" TextColor="#FF8000"/>
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
-                            <gauge:GaugeAnnotation DirectionValue="20" PositionFactor="0.52">
+                            <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.3">
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="Fuel"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -200,7 +223,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="E"
                                    FontAttributes="Bold"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -208,37 +231,53 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="F"
                                    FontAttributes="Bold"
-                                   TextColor="White"
+                                   TextColor="#FFFFFF"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="5" StartValue="0" EndValue="6" Fill="#660059FF"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="9" StartValue="0" EndValue="6" Fill="#4D0059FF"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" RangeOffset="13" StartValue="0" EndValue="6" Fill="#330059FF"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="#FFFFFF" StartValue="0" EndValue="4"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="#FF3E2E" StartValue="4" EndValue="6"/>
+                            <gauge:RadialRange/>
                         </gauge:RadialAxis.Ranges>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
             </Grid>
-            <Grid Margin="170,0,170,0" ColumnDefinitions="*,*,*" Grid.Row="2">
-                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="0">
-                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe70c;" TextColor="#33D3FF" />
-                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe70b;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe70a;" TextColor="#33D3FF"/>
+            <Grid Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" ColumnDefinitions="Auto">
+                <Border Stroke="#FFC300" StrokeThickness="3">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Grid Margin="10" RowDefinitions="Auto" ColumnDefinitions="Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
+                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Center" StrokeWidth="3" CharacterHeight="30" CharacterWidth="20" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
+                <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" VerticalTextAlignment="End" TextColor="#FFC300"/>
                 </Grid>
-                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="1">
-                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe703;" TextColor="#FF8000"/>
-                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe704;" TextColor="#FF8000"/>
-                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe702;" TextColor="#FF0000"/>
-                    <Label Grid.Column="3" FontFamily="CarDashboard" Text="&#xe700;" TextColor="#FF8000"/>
-                    <Label Grid.Column="4" FontFamily="CarDashboard" Text="&#xe701;" TextColor="#FF8000"/>
+                </Border>
+            </Grid>
+            <Grid Margin="170,10,170,0" ColumnDefinitions="*,*,*" Grid.Row="3">
+                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="0">
+                    <Label Grid.Column="0" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70c;" TextColor="#33D3FF" />
+                    <Label Grid.Column="1" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70b;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70a;" TextColor="#33D3FF"/>
+                </Grid>
+                <Grid HorizontalOptions="Center" RowDefinitions="Auto, Auto" Grid.Column="1">
+                    <Grid Grid.Row="1" ColumnSpacing="10" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center">
+                    <BoxView Grid.Column="0" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#4285F4" />
+                    <BoxView Grid.Column="1" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#32D85F"/>
+                    <BoxView Grid.Column="2" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FFBE02"/>
+                    <BoxView Grid.Column="3" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FF9629"/>
+                    <BoxView Grid.Column="4" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FF3E2E"/>
+                </Grid>
                 </Grid>
                 <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="2">
-                    <Label Grid.Column="0" FontFamily="CarDashboard" Text="&#xe707;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="1" FontFamily="CarDashboard" Text="&#xe706;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="2" FontFamily="CarDashboard" Text="&#xe708;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="0" FontSize="Large" FontFamily="CarDashboard" Text="&#xe707;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="1" FontSize="Large" FontFamily="CarDashboard" Text="&#xe706;" TextColor="#33D3FF"/>
+                    <Label Grid.Column="2" FontSize="Large" FontFamily="CarDashboard" Text="&#xe708;" TextColor="#33D3FF"/>
                 </Grid>
+            </Grid>
+            <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" Grid.Row="4">
+                <Label Text="Torque" TextColor="#FFFFFF"/>
             </Grid>
         </Grid>
     </Grid>

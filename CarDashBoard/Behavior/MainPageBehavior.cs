@@ -9,15 +9,40 @@ namespace CarDashBoard
 {
     public class MainPageBehavior : Behavior<ContentPage>
     {
+        /// <summary>
+        /// Declaration of radial axis control.
+        /// </summary>
         private RadialAxis? radialAxis;
+
+        /// <summary>
+        /// Declaration of label which denotes current time.
+        /// </summary>
+        private Label? currentTimeLabel;
+
+        /// <summary>
+        /// Begins when the behavior attached to the view.
+        /// </summary>
+        /// <param name="bindable"></param>
         protected override void OnAttachedTo(ContentPage bindable)
         {
             base.OnAttachedTo(bindable);
-            radialAxis = bindable.FindByName<RadialAxis>("temperatureAxis");
 
-            radialAxis.LabelCreated += RadialAxis_LabelCreated;
+            // Initialize variable.
+            this.radialAxis = bindable.FindByName<RadialAxis>("temperatureAxis");
+            this.currentTimeLabel = bindable.FindByName<Label>("currentTime");
+
+            // Setting default appearance.
+            this.currentTimeLabel.Text = DateTime.Now.ToString("hh:mm tt");
+
+            // Wire Required events.
+            this.radialAxis.LabelCreated += RadialAxis_LabelCreated;
         }
 
+        /// <summary>
+        /// Used to empty required strings.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadialAxis_LabelCreated(object? sender, LabelCreatedEventArgs e)
         {
             if (int.Parse(e.Text) == 75 || int.Parse(e.Text) == 125 || int.Parse(e.Text) == 175)
@@ -26,14 +51,19 @@ namespace CarDashBoard
             }
         }
 
+        /// <summary>
+        /// Begins when the behavior gets detached from the view.
+        /// Unwire Events and Nullify Variables
+        /// </summary>
+        /// <param name="bindable"></param>
         protected override void OnDetachingFrom(ContentPage bindable)
         {
             base.OnDetachingFrom(bindable);
 
-            if (radialAxis != null)
+            if (this.radialAxis != null)
             {
-                radialAxis.LabelCreated -= RadialAxis_LabelCreated;
-                radialAxis = null;
+                this.radialAxis.LabelCreated -= RadialAxis_LabelCreated;
+                this.radialAxis = null;
             }
         }
     }
