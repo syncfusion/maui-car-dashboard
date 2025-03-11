@@ -4,9 +4,9 @@
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              xmlns:local="clr-namespace:CarDashBoard"
              x:Class="CarDashBoard.MainPage">
-    <Grid Margin="20" BackgroundColor="#000000">
+    <Grid BackgroundColor="#000000">
         <Image Aspect="Fill" Source="frame.png"/>
-        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid RowDefinitions="0.1*,Auto,0.1*,0.1*,0.1*" HorizontalOptions="Center" VerticalOptions="Center" >
             <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
                 <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe703;" TextColor="#FF8000"/>
                 <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe704;" TextColor="#FF8000"/>
@@ -250,7 +250,7 @@
                         <RoundRectangle CornerRadius="20"/>
                     </Border.StrokeShape>
                     <Grid Margin="10" RowDefinitions="Auto" ColumnDefinitions="Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
-                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Center" StrokeWidth="3" CharacterHeight="30" CharacterWidth="20" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
+                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Center" StrokeWidth="3" CharacterHeight="25" CharacterWidth="15" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
                 <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" VerticalTextAlignment="End" TextColor="#FFC300"/>
                 </Grid>
                 </Border>

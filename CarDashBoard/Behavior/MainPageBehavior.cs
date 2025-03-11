@@ -20,9 +20,15 @@ namespace CarDashBoard
         private Label? currentTimeLabel;
 
         /// <summary>
+        /// Declaration of timer to update the current time.
+        /// </summary>
+        private IDispatcherTimer? timer;
+        
+        /// <summary>
         /// Begins when the behavior attached to the view.
         /// </summary>
         /// <param name="bindable"></param>
+
         protected override void OnAttachedTo(ContentPage bindable)
         {
             base.OnAttachedTo(bindable);
@@ -34,9 +40,19 @@ namespace CarDashBoard
             // Setting default appearance.
             this.currentTimeLabel.Text = DateTime.Now.ToString("hh:mm tt");
 
+            // Started a timer to update the current time. This will help to update the current time in the UI.
+            this.timer = bindable.Dispatcher.CreateTimer();
+            this.timer.Interval = TimeSpan.FromSeconds(1);
+            this.timer.Tick += (s, e) =>
+            {
+                this.currentTimeLabel.Text = DateTime.Now.ToString("hh:mm tt");
+            };
+            this.timer.Start();
+
             // Wire Required events.
             this.radialAxis.LabelCreated += RadialAxis_LabelCreated;
         }
+
 
         /// <summary>
         /// Used to empty required strings.
@@ -64,6 +80,12 @@ namespace CarDashBoard
             {
                 this.radialAxis.LabelCreated -= RadialAxis_LabelCreated;
                 this.radialAxis = null;
+            }
+
+            if (this.timer != null)
+            {
+                this.timer.Stop();
+                this.timer = null;
             }
         }
     }
