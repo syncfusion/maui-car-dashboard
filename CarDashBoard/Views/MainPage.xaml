@@ -4,9 +4,9 @@
              xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              xmlns:local="clr-namespace:CarDashBoard"
              x:Class="CarDashBoard.MainPage">
-    <Grid BackgroundColor="#000000">
-        <Image Aspect="Fill" Source="frame.png"/>
-        <Grid RowDefinitions="0.1*,Auto,0.1*,0.1*,0.1*" HorizontalOptions="Center" VerticalOptions="Center" >
+    <Grid BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#000000}">
+        <Image Aspect="Fill" Source="{AppThemeBinding Light=framelight.png, Dark=framedark.png}"/>
+        <Grid RowDefinitions="0.1*,0.5*,0.07*,0.1*,0.1*" HorizontalOptions="Center" VerticalOptions="Center" >
             <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0">
                 <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe703;" TextColor="#FF8000"/>
                 <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe704;" TextColor="#FF8000"/>
@@ -16,14 +16,14 @@
                 <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe700;" TextColor="#FF8000"/>
                 <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe701;" TextColor="#FF8000"/>
             </Grid>
-            <Grid Grid.Row="1" ColumnDefinitions="0.5*, 1*,Auto, 1*, 0.5*">
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
+            <Grid Grid.Row="1" ColumnDefinitions="0.5*,*,0.5*,*,0.5*" RowDefinitions="*">
+                <gauge:SfRadialGauge VerticalOptions="End" BackgroundColor="Transparent" Grid.Column="0">
                     <gauge:RadialAxis LabelOffset="14" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" ShowTicks="False" ShowAxisLine="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontSize="12" TextColor="#FFFFFF"/>
+                            <gauge:GaugeLabelStyle FontSize="12" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="125" EnableAnimation="True" AnimationDuration="5000" NeedleLength="0.6" NeedleFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobStroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.MajorTickStyle>
@@ -41,7 +41,7 @@
                             <gauge:GaugeAnnotation DirectionValue="120" PositionFactor="0.25">
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="Temperature"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -49,7 +49,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="C"
                                    FontAttributes="Bold"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -57,7 +57,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="H"
                                    FontAttributes="Bold"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -79,19 +79,19 @@
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="1">
+                <gauge:SfRadialGauge VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="1">
                     <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="25" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="25" StrokeThickness="4"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.MinorTickStyle>
-                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="15" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="15" StrokeThickness="4"/>
                         </gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="#FFFFFF"/>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="5" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="5" NeedleFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobStroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" NeedleLength="0.7" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
@@ -99,7 +99,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="Engine Speed"
                                            FontAttributes="Bold"
-                                           TextColor="#FFFFFF"
+                                           TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                            FontSize="10" >
                                     </Label>
                                 </gauge:GaugeAnnotation.Content>
@@ -108,7 +108,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="RPM"
                                            FontAttributes="Bold"
-                                           TextColor="#FFFFFF"
+                                           TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                            FontSize="20" >
                                     </Label>
                                 </gauge:GaugeAnnotation.Content>
@@ -117,7 +117,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="x1000"
                                    FontAttributes="Bold"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -131,25 +131,25 @@
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
                         </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="5" Fill="#FFFFFF"/>
+                            <gauge:RadialLineStyle Thickness="5" Fill="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}"/>
                         </gauge:RadialAxis.AxisLineStyle>
                     </gauge:RadialAxis>
 
                 </gauge:SfRadialGauge>
-                <Grid Grid.Column="2" RowDefinitions="Auto, Auto" ColumnDefinitions="Auto">
-                    <Label Grid.Row="0" Margin="0,10,0,0" x:Name="currentTime" FontSize="Medium" FontAttributes="Bold" TextColor="#FFFFFF"/>
+                <Grid HorizontalOptions="Center" Grid.Column="2" RowDefinitions="*,*" VerticalOptions="Start" ColumnDefinitions="*">
+                    <Label Grid.Row="0" Margin="0,10,0,0" x:Name="currentTime" FontSize="Medium" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
                     <Label Margin="0,40,0,0" Grid.Row="1" FontFamily="CarDashboard" HorizontalOptions="Center" FontSize="Large" Text="&#xe702;" TextColor="#FF0000"/>
                 </Grid>
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="3">
+                <gauge:SfRadialGauge VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="3">
                     <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" LabelOffset="0" AnimationDuration="4000" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="25" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="25" StrokeThickness="4"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.MinorTickStyle>
-                            <gauge:RadialTickStyle Stroke="#FFFFFF" Length="15" StrokeThickness="4"/>
+                            <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="15" StrokeThickness="4"/>
                         </gauge:RadialAxis.MinorTickStyle>
                         <gauge:RadialAxis.AxisLabelStyle>
-                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="#FFFFFF"/>
+                            <gauge:GaugeLabelStyle FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
                         </gauge:RadialAxis.AxisLabelStyle>
                         <gauge:RadialAxis.Ranges>
                             <gauge:RadialRange  Fill="#3B79DF" StartValue="0" EndValue="160" RangeOffset="100"/>
@@ -157,7 +157,7 @@
                             <gauge:RadialRange Fill="#E90000" StartValue="240" EndValue="320" RangeOffset="100"/>
                         </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="60" NeedleFill="Red" NeedleLength="0.7" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="60" NeedleLength="0.7" NeedleFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobStroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
@@ -189,21 +189,21 @@
                             <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
                         </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="5" Fill="#FFFFFF"/>
+                            <gauge:RadialLineStyle Thickness="5" Fill="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}"/>
                         </gauge:RadialAxis.AxisLineStyle>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
-                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="4">
+                <gauge:SfRadialGauge VerticalOptions="End" BackgroundColor="Transparent" Grid.Column="4">
                     <gauge:RadialAxis UseRangeColorForAxis="True" EnableLoadingAnimation="True" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
                         <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Stroke="#FFFFFF" StrokeThickness="3"/>
+                            <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" StrokeThickness="3"/>
                         </gauge:RadialAxis.MajorTickStyle>
                         <gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialLineStyle Thickness="3" Fill="Transparent"/>
                         </gauge:RadialAxis.AxisLineStyle>
                         <gauge:RadialAxis.Pointers>
-                            <gauge:NeedlePointer Value="2" NeedleFill="Red" NeedleLength="0.6" KnobFill="Red" KnobStroke="#FFFFFF" KnobStrokeThickness="0.02">
+                            <gauge:NeedlePointer Value="2" NeedleLength="0.6" NeedleFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobFill="{AppThemeBinding Light=#4D4D4D, Dark=#E20000}" KnobStroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" KnobStrokeThickness="0.02">
                             </gauge:NeedlePointer>
                         </gauge:RadialAxis.Pointers>
                         <gauge:RadialAxis.Annotations>
@@ -215,7 +215,7 @@
                             <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.3">
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="Fuel"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="12" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -223,7 +223,7 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="E"
                                    FontAttributes="Bold"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
@@ -231,13 +231,13 @@
                                 <gauge:GaugeAnnotation.Content>
                                     <Label Text="F"
                                    FontAttributes="Bold"
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"
                                    FontSize="14" />
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="#FFFFFF" StartValue="0" EndValue="4"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="{AppThemeBinding Light=#B9B9B9, Dark=#FFFFFF}" StartValue="0" EndValue="4"/>
                             <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="#FF3E2E" StartValue="4" EndValue="6"/>
                             <gauge:RadialRange/>
                         </gauge:RadialAxis.Ranges>
@@ -249,31 +249,29 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20"/>
                     </Border.StrokeShape>
-                    <Grid Margin="10" RowDefinitions="Auto" ColumnDefinitions="Auto,Auto" HorizontalOptions="Center" VerticalOptions="Center">
-                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Center" StrokeWidth="3" CharacterHeight="25" CharacterWidth="15" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
-                <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" VerticalTextAlignment="End" TextColor="#FFC300"/>
+                    <Grid Margin="10" RowDefinitions="*" ColumnDefinitions="*,*" HorizontalOptions="Center" VerticalOptions="End">
+                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Start" StrokeWidth="3" CharacterHeight="25" CharacterWidth="15" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
+                <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="#FFC300"/>
                 </Grid>
                 </Border>
             </Grid>
             <Grid Margin="170,10,170,0" ColumnDefinitions="*,*,*" Grid.Row="3">
-                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="0">
-                    <Label Grid.Column="0" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70c;" TextColor="#33D3FF" />
-                    <Label Grid.Column="1" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70b;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="2" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70a;" TextColor="#33D3FF"/>
+                <Grid ColumnSpacing="25" ColumnDefinitions="*,*,*" HorizontalOptions="Center" Grid.Column="0">
+                    <Label Grid.Column="0" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70c;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}" />
+                    <Label Grid.Column="1" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70b;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70a;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
                 </Grid>
-                <Grid HorizontalOptions="Center" RowDefinitions="Auto, Auto" Grid.Column="1">
-                    <Grid Grid.Row="1" ColumnSpacing="10" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" HorizontalOptions="Center">
-                    <BoxView Grid.Column="0" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#4285F4" />
-                    <BoxView Grid.Column="1" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#32D85F"/>
-                    <BoxView Grid.Column="2" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FFBE02"/>
-                    <BoxView Grid.Column="3" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FF9629"/>
-                    <BoxView Grid.Column="4" CornerRadius="20" WidthRequest="40" HeightRequest="20" BackgroundColor="#FF3E2E"/>
+                <Grid Grid.Row="1" ColumnSpacing="10" RowDefinitions="20" Grid.Column="1" ColumnDefinitions="40,40,40,40,40" HorizontalOptions="Center">
+                    <BoxView Grid.Column="0" CornerRadius="20" BackgroundColor="#4285F4" />
+                    <BoxView Grid.Column="1" CornerRadius="20" BackgroundColor="#32D85F"/>
+                    <BoxView Grid.Column="2" CornerRadius="20" BackgroundColor="#FFBE02"/>
+                    <BoxView Grid.Column="3" CornerRadius="20" BackgroundColor="#FF9629"/>
+                    <BoxView Grid.Column="4" CornerRadius="20" BackgroundColor="#FF3E2E"/>
                 </Grid>
-                </Grid>
-                <Grid ColumnSpacing="25" ColumnDefinitions="Auto, Auto, Auto" HorizontalOptions="Center" Grid.Column="2">
-                    <Label Grid.Column="0" FontSize="Large" FontFamily="CarDashboard" Text="&#xe707;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="1" FontSize="Large" FontFamily="CarDashboard" Text="&#xe706;" TextColor="#33D3FF"/>
-                    <Label Grid.Column="2" FontSize="Large" FontFamily="CarDashboard" Text="&#xe708;" TextColor="#33D3FF"/>
+                <Grid ColumnSpacing="25" ColumnDefinitions="*,*,*" HorizontalOptions="Center" Grid.Column="2">
+                    <Label Grid.Column="0" FontSize="Large" FontFamily="CarDashboard" Text="&#xe707;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
+                    <Label Grid.Column="1" FontSize="Large" FontFamily="CarDashboard" Text="&#xe706;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
+                    <Label Grid.Column="2" FontSize="Large" FontFamily="CarDashboard" Text="&#xe708;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
                 </Grid>
             </Grid>
             <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" Grid.Row="4">
