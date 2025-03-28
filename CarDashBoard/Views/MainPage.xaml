@@ -16,8 +16,8 @@
                 <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe700;" TextColor="#FF8000"/>
                 <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="Large" Text="&#xe701;" TextColor="#FF8000"/>
             </Grid>
-            <Grid Grid.Row="1" ColumnDefinitions="0.5*,*,0.5*,*,0.5*" RowDefinitions="*">
-                <gauge:SfRadialGauge VerticalOptions="End" BackgroundColor="Transparent" Grid.Column="0">
+            <Grid Grid.Row="1" ColumnDefinitions="0.5*,*,0.5*,*,0.5*">
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
                     <gauge:RadialAxis LabelOffset="14" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" ShowTicks="False" ShowAxisLine="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
                         <gauge:RadialAxis.AxisLabelStyle>
                             <gauge:GaugeLabelStyle FontSize="12" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
@@ -79,7 +79,7 @@
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
-                <gauge:SfRadialGauge VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="1">
+                <gauge:SfRadialGauge HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="1">
                     <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
                         <gauge:RadialAxis.MajorTickStyle>
                             <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="25" StrokeThickness="4"/>
@@ -140,7 +140,7 @@
                     <Label Grid.Row="0" Margin="0,10,0,0" x:Name="currentTime" FontSize="Medium" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
                     <Label Margin="0,40,0,0" Grid.Row="1" FontFamily="CarDashboard" HorizontalOptions="Center" FontSize="Large" Text="&#xe702;" TextColor="#FF0000"/>
                 </Grid>
-                <gauge:SfRadialGauge VerticalOptions="End" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="3">
+                <gauge:SfRadialGauge HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="3">
                     <gauge:RadialAxis StartAngle="160" EndAngle="20" CanScaleToFit="False" EnableLoadingAnimation="True" LabelOffset="0" AnimationDuration="4000" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
                         <gauge:RadialAxis.MajorTickStyle>
                             <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}" Length="25" StrokeThickness="4"/>
@@ -194,7 +194,7 @@
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
-                <gauge:SfRadialGauge VerticalOptions="End" BackgroundColor="Transparent" Grid.Column="4">
+                <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="4">
                     <gauge:RadialAxis UseRangeColorForAxis="True" EnableLoadingAnimation="True" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
                         <gauge:RadialAxis.MajorTickStyle>
                             <gauge:RadialTickStyle Stroke="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}" StrokeThickness="3"/>
@@ -249,9 +249,9 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20"/>
                     </Border.StrokeShape>
-                    <Grid Margin="10" RowDefinitions="*" ColumnDefinitions="*,*" HorizontalOptions="Center" VerticalOptions="End">
-                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Start" StrokeWidth="3" CharacterHeight="25" CharacterWidth="15" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
-                <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="#FFC300"/>
+                    <Grid Margin="10" RowDefinitions="*" ColumnDefinitions="*,*" HorizontalOptions="Center" VerticalOptions="Fill">
+                <gauge:SfDigitalGauge Text="36875" VerticalOptions="Center" StrokeWidth="3" HeightRequest="25" CharacterHeight="25" CharacterWidth="15" Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="#FFC300"/>
+                <Label Margin="5,0,0,0" Text="KM" Grid.Column="1" FontSize="25" HeightRequest="25" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="#FFC300"/>
                 </Grid>
                 </Border>
             </Grid>
@@ -261,12 +261,12 @@
                     <Label Grid.Column="1" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70b;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
                     <Label Grid.Column="2" FontFamily="CarDashboard" FontSize="Large" Text="&#xe70a;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
                 </Grid>
-                <Grid Grid.Row="1" ColumnSpacing="10" RowDefinitions="20" Grid.Column="1" ColumnDefinitions="40,40,40,40,40" HorizontalOptions="Center">
-                    <BoxView Grid.Column="0" CornerRadius="20" BackgroundColor="#4285F4" />
-                    <BoxView Grid.Column="1" CornerRadius="20" BackgroundColor="#32D85F"/>
-                    <BoxView Grid.Column="2" CornerRadius="20" BackgroundColor="#FFBE02"/>
-                    <BoxView Grid.Column="3" CornerRadius="20" BackgroundColor="#FF9629"/>
-                    <BoxView Grid.Column="4" CornerRadius="20" BackgroundColor="#FF3E2E"/>
+                <Grid Grid.Row="1" ColumnSpacing="10" ColumnDefinitions="*,*,*,*,*" RowDefinitions="20" Grid.Column="1" HorizontalOptions="Center">
+                    <BoxView Grid.Column="0" CornerRadius="20" WidthRequest="40" BackgroundColor="#4285F4" />
+                    <BoxView Grid.Column="1" CornerRadius="20" WidthRequest="40" BackgroundColor="#32D85F"/>
+                    <BoxView Grid.Column="2" CornerRadius="20" WidthRequest="40" BackgroundColor="#FFBE02"/>
+                    <BoxView Grid.Column="3" CornerRadius="20" WidthRequest="40" BackgroundColor="#FF9629"/>
+                    <BoxView Grid.Column="4" CornerRadius="20" WidthRequest="40" BackgroundColor="#FF3E2E"/>
                 </Grid>
                 <Grid ColumnSpacing="25" ColumnDefinitions="*,*,*" HorizontalOptions="Center" Grid.Column="2">
                     <Label Grid.Column="0" FontSize="Large" FontFamily="CarDashboard" Text="&#xe707;" TextColor="{AppThemeBinding Light=#C0C0C0, Dark=#33D3FF}"/>
