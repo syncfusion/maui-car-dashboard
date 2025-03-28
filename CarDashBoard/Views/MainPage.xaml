@@ -18,6 +18,20 @@
             </Grid>
             <Grid Grid.Row="1" ColumnDefinitions="0.5*,*,0.5*,*,0.5*">
                 <gauge:SfRadialGauge BackgroundColor="Transparent" Grid.Column="0">
+                    <gauge:RadialAxis UseRangeColorForAxis="True" ShowLabels="False" EnableLoadingAnimation="True" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
+                        <gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialLineStyle Thickness="2" Fill="Transparent"/>
+                        </gauge:RadialAxis.AxisLineStyle>
+                        <gauge:RadialAxis.Ranges>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="#32D85F">
+                            </gauge:RadialRange>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="#FF9629"/>
+                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="#FF3E2E"/>
+                        </gauge:RadialAxis.Ranges>
+                        <gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="2"/>
+                        </gauge:RadialAxis.MajorTickStyle>
+                    </gauge:RadialAxis>
                     <gauge:RadialAxis LabelOffset="14" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" ShowTicks="False" ShowAxisLine="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
                         <gauge:RadialAxis.AxisLabelStyle>
                             <gauge:GaugeLabelStyle FontSize="12" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
@@ -62,20 +76,6 @@
                                 </gauge:GaugeAnnotation.Content>
                             </gauge:GaugeAnnotation>
                         </gauge:RadialAxis.Annotations>
-                    </gauge:RadialAxis>
-                    <gauge:RadialAxis UseRangeColorForAxis="True" ShowLabels="False" EnableLoadingAnimation="True" AnimationDuration="4000" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,0,0" Minimum="25" Maximum="200" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
-                        <gauge:RadialAxis.AxisLineStyle>
-                            <gauge:RadialLineStyle Thickness="2" Fill="Transparent"/>
-                        </gauge:RadialAxis.AxisLineStyle>
-                        <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="#32D85F">
-                            </gauge:RadialRange>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="#FF9629"/>
-                            <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="#FF3E2E"/>
-                        </gauge:RadialAxis.Ranges>
-                        <gauge:RadialAxis.MajorTickStyle>
-                            <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="2"/>
-                        </gauge:RadialAxis.MajorTickStyle>
                     </gauge:RadialAxis>
                 </gauge:SfRadialGauge>
 
@@ -125,10 +125,10 @@
                     </gauge:RadialAxis>
                     <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="#660059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="#4D0059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="#330059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#80D8E5FF, Dark=#660059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#66D8E5FF, Dark=#4D0059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#4CD8E5FF, Dark=#330059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#33D8E5FF, Dark=#1A0059FF}"/>
                         </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialLineStyle Thickness="5" Fill="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}"/>
@@ -183,10 +183,10 @@
                     </gauge:RadialAxis>
                     <gauge:RadialAxis  EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
                         <gauge:RadialAxis.Ranges>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="#660059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="#4D0059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="#330059FF"/>
-                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="#1A0059FF"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="5" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#80D8E5FF, Dark=#660059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="10" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#66D8E5FF, Dark=#4D0059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="15" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#4CD8E5FF, Dark=#330059FF}"/>
+                            <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="20" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light=#33D8E5FF, Dark=#1A0059FF}"/>
                         </gauge:RadialAxis.Ranges>
                         <gauge:RadialAxis.AxisLineStyle>
                             <gauge:RadialLineStyle Thickness="5" Fill="{AppThemeBinding Light=#C0C0C0, Dark=#FFFFFF}"/>
@@ -275,7 +275,7 @@
                 </Grid>
             </Grid>
             <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" Grid.Row="4">
-                <Label Text="Torque" TextColor="#FFFFFF"/>
+                <Label Text="Torque" TextColor="{AppThemeBinding Light=#7B7B7B, Dark=#FFFFFF}"/>
             </Grid>
         </Grid>
     </Grid>
