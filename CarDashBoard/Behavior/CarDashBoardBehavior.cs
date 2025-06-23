@@ -125,15 +125,23 @@ namespace CarDashBoard
         /// <param name="e">represents dispatcher event args</param>
         private void Timer_Tick(object? sender, EventArgs e)
         {
-            this.currentHourLabel.Text = DateTime.Now.ToString("hh");
-            this.currentMinuteMeridianLabel.Text = DateTime.Now.ToString("mm tt");
-            if (this.isBlinking)
+            if (this.currentHourLabel != null)
             {
-                this.separatorLabel.TextColor = Colors.Transparent;
+                this.currentHourLabel.Text = DateTime.Now.ToString("hh");
             }
-            else
+
+            if (this.currentMinuteMeridianLabel != null && this.separatorLabel != null)
             {
-                this.separatorLabel.TextColor = this.currentMinuteMeridianLabel.TextColor;
+                this.currentMinuteMeridianLabel.Text = DateTime.Now.ToString("mm tt");
+
+                if (this.isBlinking)
+                {
+                    this.separatorLabel.TextColor = Colors.Transparent;
+                }
+                else
+                {
+                    this.separatorLabel.TextColor = this.currentMinuteMeridianLabel.TextColor;
+                }
             }
             this.isBlinking = !this.isBlinking;
         }
@@ -148,50 +156,62 @@ namespace CarDashBoard
             if (this.isLoaded)
             {
                 // Behavior for temperature needle.
-                if (this.needlePointer.Value >= 125)
+                if (this.needlePointer?.Value >= 125)
                 {
                     this.needlePointer.Value = 40;
                 }
                 else
                 {
-                    this.needlePointer.Value += 25;
+                    if (this.needlePointer != null)
+                    {
+                        this.needlePointer.Value += 25;
+                    }
                 }
 
                 // Behavior for rpm needle.
-                if (this.rpmPointer.Value >= 4.8)
+                if (this.rpmPointer?.Value >= 4.8)
                 {
                     this.rpmPointer.Value = 0.8;
                 }
                 else
                 {
-                    this.rpmPointer.Value += 0.8;
+                    if (this.rpmPointer != null)
+                    {
+                        this.rpmPointer.Value += 0.8;
+                    }
                 }
 
                 // Behavior for speed needle.
-                if (this.speedPointer.Value >= 200)
+                if (this.speedPointer?.Value >= 200)
                 {
                     this.speedPointer.Value = 60;
                 }
                 else
                 {
-                    this.speedPointer.Value += 20;
+                    if (this.speedPointer != null)
+                    {
+                        this.speedPointer.Value += 20;
+                    }
                 }
 
                 // Behavior for fuel needle.
-                if (this.fuelPointer.Value <= 5.4)
+                if (this.fuelPointer?.Value <= 5.4)
                 {
                     this.fuelPointer.Value += 0.2;
                     
                 }
 
                 // Behavior for Distance Gauge.
-                if (this.distanceGauge.Text.Length > 5)
+                if (this.distanceGauge?.Text.Length > 5)
                 {
                     this.distanceGauge.Text = "00000";
                 }
                 else
                 {
-                    this.distanceGauge.Text = (Convert.ToInt32(this.distanceGauge.Text) + 1).ToString();
+                    if (this.distanceGauge != null)
+                    {
+                        this.distanceGauge.Text = (Convert.ToInt32(this.distanceGauge.Text) + 1).ToString();
+                    }
                 }
             }
             else
@@ -209,7 +229,7 @@ namespace CarDashBoard
         /// <param name="e"></param>
         private void ContentPage_Disappearing(object? sender, EventArgs e)
         {
-            if (App.Current.Windows.Count == 0 || App.Current.Windows[0] == null)
+            if (App.Current?.Windows.Count == 0 || App.Current?.Windows[0] == null)
             {
                 return;
             }
@@ -225,7 +245,7 @@ namespace CarDashBoard
         /// <param name="e"></param>
         private void ContentPage_Appearing(object? sender, EventArgs e)
         {
-            if (App.Current.Windows.Count == 0 || App.Current.Windows[0] == null)
+            if (App.Current?.Windows.Count == 0 || App.Current?.Windows[0] == null)
             {
                 return;
             }
