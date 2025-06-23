@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             xmlns:local="clr-namespace:CarDashBoard"
+             Title="Car Dashboard"
+             x:Class="CarDashBoard.CarDashBoardDemo">
+    <ContentPage.Content>
+        <Grid x:Name="mainGrid" Scale="{OnPlatform MacCatalyst=1.5}" WidthRequest="{OnPlatform MacCatalyst=1067}" HeightRequest="{OnPlatform MacCatalyst=600}" Padding="10" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardBackgroundLight}, Dark={StaticResource CarDashBoardBackgroundDark}}">
+            <Image Margin="0,0,0,20" Aspect="Fill" Source="{AppThemeBinding Light=framelight.png, Dark=framedark.png}"/>
+            <Grid RowDefinitions="0.1*,0.5*,0.1*,0.1*,0.2*" HorizontalOptions="Center" VerticalOptions="Center" >
+                <!--Indicator Lights Layer-->
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="30" HorizontalOptions="Center" Grid.Row="0" VerticalOptions="Center">
+                    <Label Grid.Column="0" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="25" Text="&#xe703;" TextColor="#FF8000"/>
+                    <Label Grid.Column="1" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="25" Text="&#xe704;" TextColor="#FF8000"/>
+                    <Label Grid.Column="2" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="44" Text="&#xe70d;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconGreenLight}, Dark={StaticResource CarDashBoardIconGreenDark}}"/>
+                    <Label Grid.Column="3" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="50" Text="&#xe70f;" TextColor="#FF8000"/>
+                    <Label Grid.Column="4" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="44" Text="&#xe70e;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconGreenLight}, Dark={StaticResource CarDashBoardIconGreenDark}}"/>
+                    <Label Grid.Column="5" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="25" Text="&#xe700;" TextColor="#FF8000"/>
+                    <Label Grid.Column="6" FontFamily="CarDashboard" VerticalOptions="Center" FontSize="25" Text="&#xe701;" TextColor="#FF8000"/>
+                </Grid>
+                <!--Gauge Layer-->
+                <Grid Grid.Row="1" ColumnDefinitions="0.5*,*,0.5*,*,0.5*" HorizontalOptions="Center">
+                    <!--Temperature Gauge-->
+                    <gauge:SfRadialGauge Margin="20,-49,-55,40" BackgroundColor="Transparent" Grid.Column="0">
+                        <gauge:RadialAxis LabelOffset="14" EnableLoadingAnimation="True" AnimationDuration="{OnPlatform MacCatalyst=4000}" ZIndex="1" x:Name="temperatureAxis" ShowFirstLabel="False" ShowLastLabel="False" ShowTicks="False" ShowAxisLine="False" Margin="0,57,0,0" Minimum="25" Maximum="175" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
+                            <gauge:RadialAxis.AxisLabelStyle>
+                                <gauge:GaugeLabelStyle FontSize="10" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"/>
+                            </gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:NeedlePointer x:Name="temperatureNeedle" Value="125" EnableAnimation="True" AnimationDuration="2000" NeedleStartWidth="2" NeedleEndWidth="12" NeedleLength="0.7" NeedleFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobStroke="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardForegroundDark}}" KnobStrokeThickness="0.02">
+                                </gauge:NeedlePointer>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="1"/>
+                            </gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialAxis.MinorTickStyle>
+                                <gauge:RadialTickStyle Length="10" StrokeThickness="1"/>
+                            </gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation DirectionValue="275" PositionFactor="0.6" >
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="&#xe705;" FontSize="22" FontFamily="CarDashboard" TextColor="#FF8000"/>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.20">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="Temperature"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="12" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="170" PositionFactor="0.92">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="C"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="14" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="280" PositionFactor="0.92">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="H"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="14" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                        <gauge:RadialAxis UseRangeColorForAxis="True" ShowLabels="False" EnableLoadingAnimation="True" AnimationDuration="1500" ShowFirstLabel="False" ShowLastLabel="False" Margin="0,57,10,0" Minimum="25" Maximum="175" Interval="25" MinorTicksPerInterval="0" StartAngle="180" EndAngle="270">
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle Thickness="1" ThicknessUnit="Pixel" Fill="Transparent"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="0" EndValue="75" Fill="#32D85F">
+                                </gauge:RadialRange>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="75" EndValue="125" Fill="#FF9629"/>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" StartValue="125" EndValue="200" Fill="#FF3E2E"/>
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Length="10" Stroke="#FFFFFF" StrokeThickness="2"/>
+                            </gauge:RadialAxis.MajorTickStyle>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge>
+                    <!--RPM Gauge-->
+                    <gauge:SfRadialGauge Margin="50,-50,-50,-50" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="1">
+                        <gauge:RadialAxis LabelOffset="8" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="5000" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="20" StrokeThickness="3" />
+                            </gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialAxis.MinorTickStyle>
+                                <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="12" StrokeThickness="3"/>
+                            </gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialAxis.AxisLabelStyle>
+                                <gauge:GaugeLabelStyle FontFamily="OpenSansSemibold" FontSize="15" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"/>
+                            </gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:NeedlePointer Value="4.8" x:Name="rpmNeedle" EnableAnimation="True" AnimationDuration="2000" NeedleStartWidth="2" NeedleEndWidth="15" NeedleFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobStroke="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}" NeedleLength="0.65" KnobRadius="0.08" KnobStrokeThickness="0.02">
+                                </gauge:NeedlePointer>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="Engine Speed"
+                                               CharacterSpacing="1"
+                                           TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                           FontSize="11" >
+                                        </Label>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.6">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="RPM"
+                                           FontFamily="OpenSansSemibold"
+                                           TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                           FontSize="17" >
+                                        </Label>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                        <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.35">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label ZIndex="0" FontFamily="OpenSansSemibold" Text="x1000"
+                                               TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                               FontSize="12" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="4" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer2Light}, Dark={StaticResource CarDashBoardRangeLayer1Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="9" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer3Light}, Dark={StaticResource CarDashBoardRangeLayer2Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="14" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer4Light}, Dark={StaticResource CarDashBoardRangeLayer3Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="19" StartValue="1" EndValue="8" Fill="{AppThemeBinding Dark={StaticResource CarDashBoardRangeLayer4Dark}}"/>
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle Thickness="3" ThicknessUnit="Pixel" Fill="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                        </gauge:RadialAxis>
+
+                    </gauge:SfRadialGauge>
+                    <!--Time and Hazard Light-->
+                    <Grid HorizontalOptions="Center" Grid.Column="2" RowDefinitions="*,*" VerticalOptions="Start" ColumnDefinitions="*">
+                        <Label Grid.Row="0" Margin="10,10,0,0" FontSize="20" FontAttributes="None">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}" x:Name="currentHour"/>
+                                    <Span FontFamily="OpenSansSemibold" x:Name="separator" Text=":"/>
+                                    <Span FontFamily="OpenSansSemibold" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}" x:Name="currentMinuteandMeridian"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Margin="0,15,0,0" Grid.Row="1" FontFamily="CarDashboard" HorizontalOptions="Center" FontSize="25" Text="&#xe702;" TextColor="#FF0000"/>
+                    </Grid>
+                    <!--Speed Gauge-->
+                    <gauge:SfRadialGauge Margin="-50,-50,50,-50" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="3">
+                        <gauge:RadialAxis LabelOffset="1" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="20" StrokeThickness="3"/>
+                            </gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialAxis.MinorTickStyle>
+                                <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="12" StrokeThickness="3"/>
+                            </gauge:RadialAxis.MinorTickStyle>
+                            <gauge:RadialAxis.AxisLabelStyle>
+                                <gauge:GaugeLabelStyle FontFamily="OpenSansSemibold" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"/>
+                            </gauge:RadialAxis.AxisLabelStyle>
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange Fill="{AppThemeBinding Light={StaticResource CarDashBoardSpeedometerLayer1Light}, Dark={StaticResource CarDashBoardSpeedometerLayer1Dark}}" StartValue="0" EndValue="160"  RangeOffset="80"/>
+                                <gauge:RadialRange Fill="{AppThemeBinding Light={StaticResource CarDashBoardSpeedometerLayer2Light}, Dark={StaticResource CarDashBoardSpeedometerLayer2Dark}}" StartValue="160" EndValue="240" RangeOffset="80"/>
+                                <gauge:RadialRange Fill="{AppThemeBinding Light={StaticResource CarDashBoardSpeedometerLayer3Light}, Dark={StaticResource CarDashBoardSpeedometerLayer3Dark}}" StartValue="240" EndValue="320" RangeOffset="80"/>
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:NeedlePointer Value="60" x:Name="speedNeedle" EnableAnimation="True" AnimationDuration="2000" NeedleLength="0.65" NeedleStartWidth="2" NeedleEndWidth="15" NeedleFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobRadius="0.08" KnobFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobStroke="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}" KnobStrokeThickness="0.02">
+                                </gauge:NeedlePointer>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.4">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="Speed"
+                                           TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                           FontSize="11" >
+                                        </Label>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.55">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="km/h"
+                                           FontFamily="OpenSansSemibold"
+                                           TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                           FontSize="15" >
+                                        </Label>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                        </gauge:RadialAxis>
+                        <gauge:RadialAxis EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="0" StartAngle="90" EndAngle="90" Minimum="1" Maximum="8" ShowLabels="False" ShowTicks="False" >
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="4" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer2Light}, Dark={StaticResource CarDashBoardRangeLayer1Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="9" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer3Light}, Dark={StaticResource CarDashBoardRangeLayer2Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="14" StartValue="1" EndValue="8" Fill="{AppThemeBinding Light={StaticResource CarDashBoardRangeLayer4Light}, Dark={StaticResource CarDashBoardRangeLayer3Dark}}"/>
+                                <gauge:RadialRange StartWidth="4" EndWidth="4" RangeOffset="19" StartValue="1" EndValue="8" Fill="{AppThemeBinding Dark={StaticResource CarDashBoardRangeLayer4Dark}}"/>
+                            </gauge:RadialAxis.Ranges>
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle Thickness="3" ThicknessUnit="Pixel" Fill="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge>
+                    <!--Fuel Gauge-->
+                    <gauge:SfRadialGauge Margin="-70,-120,35,-30" BackgroundColor="Transparent" Grid.Column="4">
+                        <gauge:RadialAxis UseRangeColorForAxis="True" EnableLoadingAnimation="True" AnimationDuration="{OnPlatform MacCatalyst=3500}" Margin="0,57,0,0" Minimum="0" Maximum="6" Interval="1" MinorTicksPerInterval="0" ShowLabels="False" StartAngle="270" EndAngle="360">
+                            <gauge:RadialAxis.MajorTickStyle>
+                                <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}" StrokeThickness="2"/>
+                            </gauge:RadialAxis.MajorTickStyle>
+                            <gauge:RadialAxis.AxisLineStyle>
+                                <gauge:RadialLineStyle Thickness="3" Fill="Transparent"/>
+                            </gauge:RadialAxis.AxisLineStyle>
+                            <gauge:RadialAxis.Pointers>
+                                <gauge:NeedlePointer Value="1" x:Name="fuelNeedle" EnableAnimation="True" AnimationDuration="2000" NeedleStartWidth="2" NeedleEndWidth="12" NeedleLength="0.7" NeedleFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobFill="{AppThemeBinding Light={StaticResource CarDashBoardNeedleFillLight}, Dark={StaticResource CarDashBoardNeedleFillDark}}" KnobStroke="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardForegroundDark}}" KnobStrokeThickness="0.02">
+                                </gauge:NeedlePointer>
+                            </gauge:RadialAxis.Pointers>
+                            <gauge:RadialAxis.Annotations>
+                                <gauge:GaugeAnnotation DirectionValue="270" PositionFactor="0.6" >
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="&#xe709;" FontFamily="CarDashboard" FontSize="18" TextColor="#FF8000"/>
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="90" PositionFactor="0.3">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="Fuel"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="12" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="10" PositionFactor="0.92">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="E"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="14" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                                <gauge:GaugeAnnotation DirectionValue="260" PositionFactor="0.92">
+                                    <gauge:GaugeAnnotation.Content>
+                                        <Label Text="F"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"
+                                   FontSize="14" />
+                                    </gauge:GaugeAnnotation.Content>
+                                </gauge:GaugeAnnotation>
+                            </gauge:RadialAxis.Annotations>
+                            <gauge:RadialAxis.Ranges>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardFuelGaugeDark}}" StartValue="0" EndValue="4"/>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="{AppThemeBinding Light={StaticResource CarDashBoardFuelGaugeLight}, Dark={StaticResource CarDashBoardFuelGaugeDark}}" StartValue="0" EndValue="4"/>
+                                <gauge:RadialRange StartWidth="3" EndWidth="3" Fill="#FF3E2E" StartValue="4" EndValue="6"/>
+                                <gauge:RadialRange/>
+                            </gauge:RadialAxis.Ranges>
+                        </gauge:RadialAxis>
+                    </gauge:SfRadialGauge>
+                </Grid>
+                <!--Digital Gauge Layer-->
+                <Grid Margin="0,-25,0,0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" ColumnDefinitions="Auto">
+                    <Border Stroke="{AppThemeBinding Light={StaticResource CarDashBoardDigitalGaugeLight}, Dark={StaticResource CarDashBoardDigitalGaugeDark}}" StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Grid Margin="10" RowDefinitions="*" ColumnDefinitions="*,*" HorizontalOptions="Center" VerticalOptions="Fill">
+                            <gauge:SfDigitalGauge x:Name="digitalGauge" BackgroundColor="Transparent" DisabledSegmentStroke="Transparent" Text="36875" VerticalOptions="Center" StrokeWidth="3" HeightRequest="30" CharacterHeight="30" CharacterWidth="15"  Grid.Column="0" DisabledSegmentAlpha="0" CharacterStroke="{AppThemeBinding Light={StaticResource CarDashBoardDigitalGaugeLight}, Dark={StaticResource CarDashBoardDigitalGaugeDark}}"/>
+                            <Label Margin="5,0,0,-4" Text="KM" Grid.Column="1" FontSize="20" HeightRequest="25" VerticalOptions="End" VerticalTextAlignment="End" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardDigitalGaugeLight}, Dark={StaticResource CarDashBoardDigitalGaugeDark}}"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <!--Sensor Lights Layer-->
+                <Grid Margin="100,10,100,0" ColumnDefinitions="*,*,*" Grid.Row="3" VerticalOptions="Center">
+                    <Grid ColumnSpacing="25" ColumnDefinitions="*,*,*" HeightRequest="25" HorizontalOptions="Center" Grid.Column="0">
+                        <Label Grid.Column="0" FontFamily="CarDashboard" FontSize="25" Text="&#xe70c;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}" />
+                        <Label Grid.Column="1" FontFamily="CarDashboard" FontSize="25" Text="&#xe70b;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}"/>
+                        <Label Grid.Column="2" FontFamily="CarDashboard" FontSize="25" Text="&#xe70a;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}"/>
+                    </Grid>
+                    <Grid Grid.Row="1" ColumnSpacing="8" ColumnDefinitions="*,*,*,*,*" RowDefinitions="17" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                        <BoxView Grid.Column="0" CornerRadius="20" WidthRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardIconBlueLight}, Dark={StaticResource CarDashBoardIconBlueDark}}" />
+                        <BoxView Grid.Column="1" CornerRadius="20" WidthRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardIconGreenLight}, Dark={StaticResource CarDashBoardIconGreenDark}}"/>
+                        <BoxView Grid.Column="2" CornerRadius="20" WidthRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardIconYellowLight}, Dark={StaticResource CarDashBoardIconYellowDark}}"/>
+                        <BoxView Grid.Column="3" CornerRadius="20" WidthRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardIconOrangeLight}, Dark={StaticResource CarDashBoardIconOrangeDark}}"/>
+                        <BoxView Grid.Column="4" CornerRadius="20" WidthRequest="40" BackgroundColor="{AppThemeBinding Light={StaticResource CarDashBoardIconRedLight}, Dark={StaticResource CarDashBoardIconRedDark}}"/>
+                    </Grid>
+                    <Grid ColumnSpacing="25" HeightRequest="25" ColumnDefinitions="*,*,*" HorizontalOptions="Center" Grid.Column="2">
+                        <Label Grid.Column="0" FontSize="25" FontFamily="CarDashboard" Text="&#xe707;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}"/>
+                        <Label Grid.Column="1" FontSize="25" FontFamily="CarDashboard" Text="&#xe706;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}"/>
+                        <Label Grid.Column="2" FontSize="25" FontFamily="CarDashboard" Text="&#xe708;" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardIconLight}, Dark={StaticResource CarDashBoardIconDark}}"/>
+                    </Grid>
+                </Grid>
+                <!--Torque Label Layer-->
+                <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" Grid.Row="4">
+                    <Label Text="Torque" TextColor="{AppThemeBinding Light={StaticResource CarDashBoardForegroundLight}, Dark={StaticResource CarDashBoardForegroundDark}}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+    <ContentPage.Behaviors>
+        <local:CarDashBoardBehavior/>
+    </ContentPage.Behaviors>
+</ContentPage>
