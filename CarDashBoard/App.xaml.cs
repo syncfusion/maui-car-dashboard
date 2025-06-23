@@ -9,7 +9,11 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new MainPage());
+#if WINDOWS || MACCATALYST
+            return new Window(new CarDashBoardDemo());
+#else
+            return new Window();
+#endif
         }
     }
 }

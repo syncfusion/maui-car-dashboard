@@ -42,4 +42,47 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <!--CarDashboardShowcaseLightTheme-->
+    <Color x:Key="CarDashBoardBackgroundLight">#FFFFFF</Color>
+    <Color x:Key="CarDashBoardForegroundLight">#7B7B7B</Color>
+    <Color x:Key="CarDashBoardIconLight">#C0C0C0</Color>
+    <Color x:Key="CarDashBoardNeedleFillLight">#4D4D4D</Color>
+    <Color x:Key="CarDashBoardLineStyleLight">#C0C0C0</Color>
+    <Color x:Key="CarDashBoardRangeLayer1Light">#80D8E5FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer2Light">#66D8E5FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer3Light">#4CD8E5FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer4Light">#33D8E5FF</Color>
+    <Color x:Key="CarDashBoardFuelGaugeLight">#B9B9B9</Color>
+    <Color x:Key="CarDashBoardIconGreenLight">#0AB237</Color>
+    <Color x:Key="CarDashBoardIconBlueLight">#1B5FCF</Color>
+    <Color x:Key="CarDashBoardIconYellowLight">#EBBF0F</Color>
+    <Color x:Key="CarDashBoardIconOrangeLight">#F48007</Color>
+    <Color x:Key="CarDashBoardIconRedLight">#FF3E2E</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer1Light">#498CFA</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer2Light">#FF2F1E</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer3Light">#A20505</Color>
+    <Color x:Key="CarDashBoardDigitalGaugeLight">#C29402</Color>
+
+    <!--CarDashboardShowcaseDarkTheme-->
+    <Color x:Key="CarDashBoardBackgroundDark">#000000</Color>
+    <Color x:Key="CarDashBoardForegroundDark">#FFFFFF</Color>
+    <Color x:Key="CarDashBoardIconDark">#33D3FF</Color>
+    <Color x:Key="CarDashBoardNeedleFillDark">#E20000</Color>
+    <Color x:Key="CarDashBoardLineStyleDark">#FFFFFF</Color>
+    <Color x:Key="CarDashBoardRangeLayer1Dark">#660059FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer2Dark">#4D0059FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer3Dark">#330059FF</Color>
+    <Color x:Key="CarDashBoardRangeLayer4Dark">#1A0059FF</Color>
+    <Color x:Key="CarDashBoardFuelGaugeDark">#FFFFFF</Color>
+    <Color x:Key="CarDashBoardIconGreenDark">#00E93E</Color>
+    <Color x:Key="CarDashBoardIconBlueDark">#4285F4</Color>
+    <Color x:Key="CarDashBoardIconYellowDark">#FFBE02</Color>
+    <Color x:Key="CarDashBoardIconOrangeDark">#FF9629</Color>
+    <Color x:Key="CarDashBoardIconRedDark">#FF3E2E</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer1Dark">#3B79DF</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer2Dark">#FF3E2E</Color>
+    <Color x:Key="CarDashBoardSpeedometerLayer3Dark">#E90000</Color>
+    <Color x:Key="CarDashBoardDigitalGaugeDark">#FFC300</Color>
+    
 </ResourceDictionary>
