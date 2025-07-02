@@ -2,6 +2,45 @@
 
 This repository contains the samples that demonstrate to create car dashboard in .NET MAUI application using SfRadialGauge Control.
 
+## Features Integrated
+
+- Engine Speed (RPM) display
+- Vehicle Speed (km/h) display
+- Temperature gauge (engine coolant)
+- Fuel gauge (fuel level)
+- Odometer (total distance traveled)
+- Indicator lights (turn signals, parking, engine warning, oil, battery, etc.)
+- Time display (current time)
+- Torque indicator
+- Warning indicator (triangle alert)
+- Dashboard alerts (various system statuses/icons)
+
+## Project Patterns and Features
+
+- XAML UI
+- Custom controls
+- Data binding
+- Behaviors
+- MVVM
+- Styles
+
+## Syncfusion Controls
+
+This project uses the following Syncfusion controls based on the information in your clipboard:
+
+- SfRadialGauge
+- SfDigitalGauge
+
+## Screens
+
+**Light Theme**
+
+<img src="Images\Car-Dashboard-Light-Theme.png" Width="600" />
+
+**Dark Theme**
+
+<img src="Images\Car-Dashboard-Dark-Theme.png" Width="600" />
+
 ## Supported platforms
 
 .NET Multi-platform App UI (.NET MAUI) apps can be written for the following platforms:
