@@ -45,9 +45,7 @@ This project uses the following Syncfusion controls based on the information in 
 
 .NET Multi-platform App UI (.NET MAUI) apps can be written for the following platforms:
 
-* Android 5.0 (API 21) or higher.
-* iOS 11 or higher, using the latest release of Xcode.
-* macOS 10.15 or higher, using Mac Catalyst.
+* macOS 15.1 or higher, using Mac Catalyst.
 * Windows 11 and Windows 10 version 1809 or higher, using [Windows UI Library (WinUI) 3](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/).
 
 ## Requirements to run the sample
@@ -59,7 +57,7 @@ Refer to the following link for more details: [System Requirements](https://help
 
 ## How to run the sample
 
-1. Clone the sample and open it in Visual Studio 2022.
+1. Clone the sample and open it in Visual Studio 2022 preview.
 
    *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
 
