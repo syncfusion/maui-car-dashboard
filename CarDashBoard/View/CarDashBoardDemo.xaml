@@ -85,7 +85,7 @@
                     </gauge:SfRadialGauge>
                     <!--RPM Gauge-->
                     <gauge:SfRadialGauge Margin="50,-50,-50,-50" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="1">
-                        <gauge:RadialAxis LabelOffset="8" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="5000" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
+                        <gauge:RadialAxis LabelOffset="8" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="{OnPlatform WinUI=5000,MacCatalyst=0}" ZIndex="1"  Interval="1" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="8">
                             <gauge:RadialAxis.MajorTickStyle>
                                 <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="20" StrokeThickness="3" />
                             </gauge:RadialAxis.MajorTickStyle>
@@ -157,7 +157,7 @@
                     </Grid>
                     <!--Speed Gauge-->
                     <gauge:SfRadialGauge Margin="-50,-50,50,-50" HorizontalOptions="Center" BackgroundColor="Transparent" Grid.Column="3">
-                        <gauge:RadialAxis LabelOffset="1" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="4000" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
+                        <gauge:RadialAxis LabelOffset="1" StartAngle="145" EndAngle="30" CanScaleToFit="False" EnableLoadingAnimation="True" AnimationDuration="{OnPlatform WinUI=4000,MacCatalyst=0}" ZIndex="1"  Interval="40" MinorTicksPerInterval="1" ShowAxisLine="False" Minimum="0" Maximum="320">
                             <gauge:RadialAxis.MajorTickStyle>
                                 <gauge:RadialTickStyle Stroke="{AppThemeBinding Light={StaticResource CarDashBoardLineStyleLight}, Dark={StaticResource CarDashBoardLineStyleDark}}" Length="20" StrokeThickness="3"/>
                             </gauge:RadialAxis.MajorTickStyle>
